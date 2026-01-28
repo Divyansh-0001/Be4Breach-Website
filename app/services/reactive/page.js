@@ -1,3 +1,7 @@
+import AnimatedSection from "../../components/AnimatedSection";
+import InfoCard from "../../components/InfoCard";
+import SectionHeader from "../../components/SectionHeader";
+
 export const metadata = {
   title: "Reactive Response",
   description:
@@ -43,70 +47,43 @@ const aiCards = [
 export default function ReactivePage() {
   return (
     <main id="main-content" className="mx-auto w-full max-w-6xl px-6 py-12">
-      <section className="space-y-4">
-        <p className="text-xs uppercase tracking-[0.4em] text-brand-red">
-          Services
-        </p>
-        <h1 className="font-display text-3xl font-semibold text-brand-white">
-          Reactive Response
-        </h1>
-        <p className="max-w-2xl text-sm text-brand-white/70">
-          When incidents occur, we bring disciplined response, containment, and
-          recovery with transparent reporting. Every action is documented to
-          preserve trust and compliance.
-        </p>
-      </section>
+      <AnimatedSection>
+        <SectionHeader
+          label="Services"
+          title="Reactive Response"
+          description="When incidents occur, we bring disciplined response, containment, and recovery with transparent reporting. Every action is documented to preserve trust and compliance."
+        />
+      </AnimatedSection>
 
-      <section className="mt-10">
-        <h2 className="font-display text-2xl font-semibold text-brand-white">
-          What this service delivers
-        </h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
+      <AnimatedSection className="mt-12">
+        <SectionHeader label="Delivery" title="What this service delivers" />
+        <div className="mt-6 grid gap-6 md:grid-cols-3">
           {coreCards.map((card) => (
-            <div
+            <InfoCard
               key={card.title}
-              className="rounded-lg border border-brand-white/10 bg-brand-black/60 p-5"
-            >
-              <h3 className="font-display text-base font-semibold text-brand-white">
-                {card.title}
-              </h3>
-              <p className="mt-2 text-sm text-brand-white/60">
-                {card.description}
-              </p>
-            </div>
+              title={card.title}
+              description={card.description}
+            />
           ))}
         </div>
-      </section>
+      </AnimatedSection>
 
-      <section className="mt-12">
-        <div className="space-y-3">
-          <p className="text-xs uppercase tracking-[0.4em] text-brand-red">
-            AI Advantage
-          </p>
-          <h2 className="font-display text-2xl font-semibold text-brand-white">
-            How AI improves reactive response.
-          </h2>
-          <p className="max-w-2xl text-sm text-brand-white/70">
-            AI accelerates investigation and containment while preserving human
-            oversight. Insights are documented for audit-ready clarity.
-          </p>
-        </div>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
+      <AnimatedSection className="mt-12">
+        <SectionHeader
+          label="AI Advantage"
+          title="How AI improves reactive response."
+          description="AI accelerates investigation and containment while preserving human oversight. Insights are documented for audit-ready clarity."
+        />
+        <div className="mt-6 grid gap-6 md:grid-cols-3">
           {aiCards.map((card) => (
-            <div
+            <InfoCard
               key={card.title}
-              className="rounded-lg border border-brand-white/10 bg-brand-black/60 p-5"
-            >
-              <h3 className="font-display text-base font-semibold text-brand-white">
-                {card.title}
-              </h3>
-              <p className="mt-2 text-sm text-brand-white/60">
-                {card.description}
-              </p>
-            </div>
+              title={card.title}
+              description={card.description}
+            />
           ))}
         </div>
-      </section>
+      </AnimatedSection>
     </main>
   );
 }

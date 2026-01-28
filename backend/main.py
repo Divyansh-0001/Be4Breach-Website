@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-app = FastAPI(title="Before Breach API")
+app = FastAPI(title="Be4Breach API")
 
 
 def get_allowed_origins() -> List[str]:

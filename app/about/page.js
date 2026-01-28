@@ -1,14 +1,18 @@
+import AnimatedSection from "../components/AnimatedSection";
+import InfoCard from "../components/InfoCard";
+import SectionHeader from "../components/SectionHeader";
+
 export const metadata = {
   title: "About",
   description:
-    "Learn about Before Breach: mission, vision, and AI-first cybersecurity philosophy.",
+    "Learn about Be4Breach: mission, vision, and AI-first cybersecurity philosophy.",
 };
 
 const highlights = [
   {
     title: "Mission",
     description:
-      "Protect enterprises from modern threats by delivering proactive, measurable security outcomes.",
+      "Protect enterprises from modern threats by delivering measurable, proactive security outcomes.",
   },
   {
     title: "Vision",
@@ -26,112 +30,84 @@ const operatingModel = [
   {
     title: "Strategic consulting",
     description:
-      "We align security strategy, governance, and architecture to your business goals.",
+      "We align security strategy, governance, and architecture to business goals.",
   },
   {
     title: "Hands-on execution",
     description:
-      "Our operators embed with your teams to implement controls and improve readiness.",
+      "Our operators embed with teams to implement controls and improve readiness.",
   },
   {
     title: "Productized intelligence",
     description:
-      "AI-enabled tooling transforms telemetry into clear guidance and repeatable outcomes.",
+      "AI-enabled tooling transforms telemetry into clear guidance and outcomes.",
   },
 ];
 
 export default function AboutPage() {
   return (
     <main id="main-content" className="mx-auto w-full max-w-6xl px-6 py-12">
-      <section className="space-y-4">
-        <p className="text-xs uppercase tracking-[0.4em] text-brand-red">
-          About
-        </p>
-        <h1 className="font-display text-3xl font-semibold text-brand-white">
-          Before Breach delivers trusted, AI-first cybersecurity for enterprises.
-        </h1>
-        <p className="max-w-2xl text-sm text-brand-white/70">
-          We help organizations reduce breach risk by combining strategic
-          advisory services with AI-powered security products. Every engagement
-          is designed for clarity, accountability, and measurable protection.
-        </p>
-      </section>
+      <AnimatedSection>
+        <SectionHeader
+          label="About"
+          title="Be4Breach delivers trusted, AI-first cybersecurity for enterprises."
+          description="We help organizations reduce breach risk by combining strategic advisory services with AI-powered security products. Every engagement is designed for clarity and accountability."
+        />
+      </AnimatedSection>
 
-      <section className="mt-10 grid gap-4 md:grid-cols-3">
+      <AnimatedSection className="mt-10 grid gap-6 md:grid-cols-3">
         {highlights.map((item) => (
-          <div
+          <InfoCard
             key={item.title}
-            className="rounded-lg border border-brand-white/10 bg-brand-black/60 p-6"
-          >
-            <h2 className="font-display text-lg font-semibold text-brand-white">
-              {item.title}
-            </h2>
-            <p className="mt-2 text-sm text-brand-white/60">
-              {item.description}
-            </p>
-          </div>
+            title={item.title}
+            description={item.description}
+          />
         ))}
-      </section>
+      </AnimatedSection>
 
-      <section className="mt-12 grid gap-8 border-t border-brand-white/10 pt-10 md:grid-cols-[1.1fr_0.9fr]">
+      <AnimatedSection className="mt-14 grid gap-10 md:grid-cols-[1.1fr_0.9fr]">
         <div className="space-y-4">
-          <p className="text-xs uppercase tracking-[0.4em] text-brand-red">
-            AI-first philosophy
-          </p>
-          <h2 className="font-display text-2xl font-semibold text-brand-white">
-            Intelligence that earns trust.
-          </h2>
-          <p className="text-sm text-brand-white/70">
-            Our AI models prioritize transparency, explainability, and human
-            oversight. We fuse telemetry across cloud, identity, and endpoint
-            layers to build a risk graph that surfaces the actions most likely
-            to prevent breaches.
-          </p>
+          <SectionHeader
+            label="AI-first philosophy"
+            title="Intelligence that earns trust."
+            description="Our AI models prioritize transparency, explainability, and human oversight. We fuse telemetry across cloud, identity, and endpoint layers to build a risk graph that surfaces the actions most likely to prevent breaches."
+          />
           <p className="text-sm text-brand-white/70">
             Security leaders receive clear recommendations backed by evidence,
             ensuring every decision is auditable and aligned with policy.
           </p>
         </div>
-        <div className="space-y-4 rounded-lg border border-brand-white/10 bg-brand-black/60 p-6">
-          <p className="text-xs uppercase tracking-[0.4em] text-brand-white/50">
+        <div className="rounded-3xl border border-brand-white/10 bg-brand-dark/80 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+          <p className="text-xs uppercase tracking-[0.4em] text-brand-cyan/70">
             Consulting + Product
           </p>
-          <h3 className="font-display text-lg font-semibold text-brand-white">
+          <h3 className="mt-3 text-lg font-semibold text-brand-white">
             A hybrid model built for resilience.
           </h3>
-          <p className="text-sm text-brand-white/70">
-            Before Breach combines executive advisory, technical execution, and
+          <p className="mt-3 text-sm text-brand-white/70">
+            Be4Breach combines executive advisory, technical execution, and
             AI-enabled products. This hybrid approach delivers immediate impact
-            while continuously improving your long-term security posture.
+            while continuously improving long-term security posture.
           </p>
         </div>
-      </section>
+      </AnimatedSection>
 
-      <section className="mt-12">
-        <h2 className="font-display text-2xl font-semibold text-brand-white">
-          How we operate
-        </h2>
-        <p className="mt-3 max-w-2xl text-sm text-brand-white/70">
-          Our delivery model is built to integrate with enterprise security
-          programs without disrupting operations, reinforcing trust at every
-          stage.
-        </p>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
+      <AnimatedSection className="mt-14">
+        <SectionHeader
+          label="Operating model"
+          title="How we operate"
+          description="Our delivery model integrates with enterprise security programs without disrupting operations, reinforcing trust at every stage."
+        />
+        <div className="mt-6 grid gap-6 md:grid-cols-3">
           {operatingModel.map((item) => (
-            <div
+            <InfoCard
               key={item.title}
-              className="rounded-lg border border-brand-white/10 bg-brand-black/60 p-5"
-            >
-              <h3 className="font-display text-base font-semibold text-brand-white">
-                {item.title}
-              </h3>
-              <p className="mt-2 text-sm text-brand-white/60">
-                {item.description}
-              </p>
-            </div>
+              title={item.title}
+              description={item.description}
+            />
           ))}
         </div>
-      </section>
+      </AnimatedSection>
     </main>
   );
 }

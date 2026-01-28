@@ -74,13 +74,13 @@ export default function ContactPage() {
   return (
     <main id="main-content" className="mx-auto w-full max-w-6xl px-6 py-12">
       <section className="space-y-4">
-        <p className="text-xs uppercase tracking-[0.4em] text-brand-red">
+        <p className="text-xs uppercase tracking-[0.4em] text-brand-cyan">
           Contact
         </p>
-        <h1 className="font-display text-3xl font-semibold text-brand-white">
-          Start a secure conversation.
+        <h1 className="text-3xl font-semibold text-brand-white md:text-4xl">
+          Start a secure conversation with Be4Breach.
         </h1>
-        <p className="max-w-2xl text-sm text-brand-white/70">
+        <p className="max-w-2xl text-sm text-brand-white/70 md:text-base">
           Connect with our security team for enterprise readiness assessments,
           AI-driven defense planning, and rapid response support.
         </p>
@@ -92,14 +92,14 @@ export default function ContactPage() {
             <div
               role="status"
               aria-live="polite"
-              className="mb-6 rounded-lg border border-brand-red/30 bg-brand-red/10 p-4 text-sm text-brand-white"
+              className="mb-6 rounded-2xl border border-brand-cyan/30 bg-brand-cyan/10 p-4 text-sm text-brand-white"
             >
               Thank you for reaching out. Our team will respond within one
               business day.
             </div>
           ) : null}
           <form
-            className="space-y-4 rounded-lg border border-brand-white/10 bg-brand-black/60 p-6"
+            className="space-y-4 rounded-2xl border border-brand-white/10 bg-brand-dark/80 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
             onSubmit={handleSubmit}
           >
             <div>
@@ -119,8 +119,10 @@ export default function ContactPage() {
                 required
                 aria-invalid={Boolean(errors.name)}
                 aria-describedby={errors.name ? "name-error" : undefined}
-                className={`mt-2 w-full rounded-md border bg-brand-black/80 px-3 py-2 text-sm text-brand-white outline-none transition focus:border-brand-red/70 focus:ring-1 focus:ring-brand-red/70 ${
-                  errors.name ? "border-brand-red/70" : "border-brand-white/10"
+                className={`mt-2 w-full rounded-full border bg-brand-dark/80 px-4 py-3 text-sm text-brand-white outline-none transition focus:border-brand-cyan/70 focus:ring-1 focus:ring-brand-cyan/70 ${
+                  errors.name
+                    ? "border-brand-red/70"
+                    : "border-brand-white/10"
                 }`}
                 placeholder="Jordan Lee"
               />
@@ -148,8 +150,10 @@ export default function ContactPage() {
                 required
                 aria-invalid={Boolean(errors.email)}
                 aria-describedby={errors.email ? "email-error" : undefined}
-                className={`mt-2 w-full rounded-md border bg-brand-black/80 px-3 py-2 text-sm text-brand-white outline-none transition focus:border-brand-red/70 focus:ring-1 focus:ring-brand-red/70 ${
-                  errors.email ? "border-brand-red/70" : "border-brand-white/10"
+                className={`mt-2 w-full rounded-full border bg-brand-dark/80 px-4 py-3 text-sm text-brand-white outline-none transition focus:border-brand-cyan/70 focus:ring-1 focus:ring-brand-cyan/70 ${
+                  errors.email
+                    ? "border-brand-red/70"
+                    : "border-brand-white/10"
                 }`}
                 placeholder="jordan@company.com"
               />
@@ -177,12 +181,12 @@ export default function ContactPage() {
                 required
                 aria-invalid={Boolean(errors.company)}
                 aria-describedby={errors.company ? "company-error" : undefined}
-                className={`mt-2 w-full rounded-md border bg-brand-black/80 px-3 py-2 text-sm text-brand-white outline-none transition focus:border-brand-red/70 focus:ring-1 focus:ring-brand-red/70 ${
+                className={`mt-2 w-full rounded-full border bg-brand-dark/80 px-4 py-3 text-sm text-brand-white outline-none transition focus:border-brand-cyan/70 focus:ring-1 focus:ring-brand-cyan/70 ${
                   errors.company
                     ? "border-brand-red/70"
                     : "border-brand-white/10"
                 }`}
-                placeholder="Before Breach"
+                placeholder="Be4Breach"
               />
               {errors.company ? (
                 <p id="company-error" className="mt-2 text-xs text-brand-red">
@@ -207,7 +211,7 @@ export default function ContactPage() {
                 required
                 aria-invalid={Boolean(errors.message)}
                 aria-describedby={errors.message ? "message-error" : undefined}
-                className={`mt-2 w-full rounded-md border bg-brand-black/80 px-3 py-2 text-sm text-brand-white outline-none transition focus:border-brand-red/70 focus:ring-1 focus:ring-brand-red/70 ${
+                className={`mt-2 w-full rounded-2xl border bg-brand-dark/80 px-4 py-3 text-sm text-brand-white outline-none transition focus:border-brand-cyan/70 focus:ring-1 focus:ring-brand-cyan/70 ${
                   errors.message
                     ? "border-brand-red/70"
                     : "border-brand-white/10"
@@ -223,19 +227,19 @@ export default function ContactPage() {
 
             <button
               type="submit"
-              className="w-full rounded-md border border-brand-red bg-brand-red px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-brand-black transition hover:bg-brand-white hover:text-brand-black"
+              className="w-full rounded-full border border-brand-red bg-brand-red px-5 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-brand-dark transition hover:shadow-[0_0_24px_rgba(255,46,46,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan/70"
             >
               Send message
             </button>
           </form>
         </div>
 
-        <div className="space-y-4 rounded-lg border border-brand-white/10 bg-brand-black/60 p-6 text-sm text-brand-white/70">
+        <div className="space-y-4 rounded-2xl border border-brand-white/10 bg-brand-dark/80 p-6 text-sm text-brand-white/70 shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
           <div>
             <p className="text-xs uppercase tracking-[0.35em] text-brand-white/50">
               Contact details
             </p>
-            <p className="mt-3">security@beforebreach.example</p>
+            <p className="mt-3">security@be4breach.example</p>
             <p className="mt-2">+1 (555) 010-2901</p>
           </div>
           <div>

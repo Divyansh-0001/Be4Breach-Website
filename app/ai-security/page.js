@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import AnimatedSection from "../components/AnimatedSection";
 
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
@@ -13,7 +14,7 @@ const initialFormState = {
 
 const riskBadgeStyles = {
   Low: "border-brand-white/20 text-brand-white/70",
-  Medium: "border-brand-red/40 text-brand-red/80",
+  Medium: "border-brand-cyan/40 text-brand-cyan/80",
   High: "border-brand-red text-brand-red",
 };
 
@@ -73,25 +74,25 @@ export default function AiSecurityPage() {
 
   return (
     <main id="main-content" className="mx-auto w-full max-w-6xl px-6 py-12">
-      <section className="space-y-4">
-        <p className="text-xs uppercase tracking-[0.4em] text-brand-red">
+      <AnimatedSection className="space-y-4">
+        <p className="text-xs uppercase tracking-[0.4em] text-brand-cyan">
           AI Security
         </p>
-        <h1 className="font-display text-3xl font-semibold text-brand-white">
+        <h1 className="text-3xl font-semibold text-brand-white md:text-4xl">
           AI-assisted security analysis for enterprise teams.
         </h1>
-        <p className="max-w-2xl text-sm text-brand-white/70">
+        <p className="max-w-2xl text-sm text-brand-white/70 md:text-base">
           Submit a short description of a security concern to receive a
-          rule-based risk assessment. This is a placeholder for our future
-          AI-native analysis engine.
+          rule-based risk assessment. This is a placeholder for the upcoming
+          Be4Breach AI analysis engine.
         </p>
-      </section>
+      </AnimatedSection>
 
       <section className="mt-10 grid gap-8 md:grid-cols-[1.1fr_0.9fr]">
-          <form
+        <form
           onSubmit={handleSubmit}
-          className="space-y-4 rounded-lg border border-brand-white/10 bg-brand-black/60 p-6"
-            aria-busy={isLoading}
+          className="space-y-4 rounded-2xl border border-brand-white/10 bg-brand-dark/80 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
+          aria-busy={isLoading}
         >
           <div>
             <label
@@ -107,7 +108,7 @@ export default function AiSecurityPage() {
               value={formData.text}
               onChange={handleChange}
               required
-              className="mt-2 w-full rounded-md border border-brand-white/10 bg-brand-black/80 px-3 py-2 text-sm text-brand-white outline-none transition focus:border-brand-red/70 focus:ring-1 focus:ring-brand-red/70"
+              className="mt-2 w-full rounded-2xl border border-brand-white/10 bg-brand-dark/80 px-4 py-3 text-sm text-brand-white outline-none transition focus:border-brand-cyan/70 focus:ring-1 focus:ring-brand-cyan/70"
               placeholder="Example: We detected unusual authentication attempts and lateral movement across production servers."
             />
           </div>
@@ -125,7 +126,7 @@ export default function AiSecurityPage() {
               type="text"
               value={formData.systemType}
               onChange={handleChange}
-              className="mt-2 w-full rounded-md border border-brand-white/10 bg-brand-black/80 px-3 py-2 text-sm text-brand-white outline-none transition focus:border-brand-red/70 focus:ring-1 focus:ring-brand-red/70"
+              className="mt-2 w-full rounded-full border border-brand-white/10 bg-brand-dark/80 px-4 py-3 text-sm text-brand-white outline-none transition focus:border-brand-cyan/70 focus:ring-1 focus:ring-brand-cyan/70"
               placeholder="Finance, healthcare, critical infrastructure"
             />
           </div>
@@ -139,14 +140,14 @@ export default function AiSecurityPage() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full rounded-md border border-brand-red bg-brand-red px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-brand-black transition hover:bg-brand-white hover:text-brand-black disabled:cursor-not-allowed disabled:opacity-70"
+            className="w-full rounded-full border border-brand-red bg-brand-red px-5 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-brand-dark transition hover:shadow-[0_0_24px_rgba(255,46,46,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan/70 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {isLoading ? "Analyzing..." : "Run analysis"}
           </button>
         </form>
 
         <div
-          className="space-y-4 rounded-lg border border-brand-white/10 bg-brand-black/60 p-6"
+          className="space-y-4 rounded-2xl border border-brand-white/10 bg-brand-dark/80 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
           aria-live="polite"
         >
           <p className="text-xs uppercase tracking-[0.35em] text-brand-white/50">

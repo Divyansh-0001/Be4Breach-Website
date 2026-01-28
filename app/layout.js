@@ -3,14 +3,14 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 export const metadata = {
-  metadataBase: new URL("https://beforebreach.example"),
+  metadataBase: new URL("https://be4breach.example"),
   title: {
-    default: "Before Breach",
-    template: "%s | Before Breach",
+    default: "Be4Breach",
+    template: "%s | Be4Breach",
   },
   description:
-    "AI-first cybersecurity services delivering trusted, enterprise-grade defense.",
-  applicationName: "Before Breach",
+    "AI-powered cybersecurity solutions for proactive enterprise defense.",
+  applicationName: "Be4Breach",
   keywords: [
     "cybersecurity",
     "AI security",
@@ -19,18 +19,18 @@ export const metadata = {
     "incident response",
   ],
   openGraph: {
-    title: "Before Breach",
+    title: "Be4Breach",
     description:
-      "Enterprise-grade cybersecurity services with AI-driven insights.",
-    url: "https://beforebreach.example",
-    siteName: "Before Breach",
+      "AI-powered cybersecurity solutions with proactive threat intelligence.",
+    url: "https://be4breach.example",
+    siteName: "Be4Breach",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Before Breach",
+    title: "Be4Breach",
     description:
-      "Enterprise-grade cybersecurity services with AI-driven insights.",
+      "AI-powered cybersecurity solutions with proactive threat intelligence.",
   },
   robots: {
     index: true,
@@ -41,11 +41,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
-      <body className="bg-brand-black text-brand-white font-body antialiased">
-        <div className="flex min-h-screen flex-col">
+      <body className="bg-brand-dark text-brand-white font-sans antialiased">
+        <div className="relative flex min-h-screen flex-col overflow-hidden">
+          <div className="pointer-events-none absolute inset-0 -z-10">
+            <div className="absolute left-1/2 top-[-200px] h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-brand-cyan/10 blur-[140px]" />
+            <div className="absolute bottom-[-240px] right-[-140px] h-[420px] w-[420px] rounded-full bg-brand-red/10 blur-[120px]" />
+          </div>
           <a
             href="#main-content"
-            className="sr-only focus:not-sr-only focus:fixed focus:left-6 focus:top-6 focus:z-50 focus:rounded focus:bg-brand-red focus:px-4 focus:py-2 focus:text-xs focus:font-semibold focus:uppercase focus:tracking-[0.25em] focus:text-brand-black"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-6 focus:top-6 focus:z-50 focus:rounded focus:bg-brand-red focus:px-4 focus:py-2 focus:text-xs focus:font-semibold focus:uppercase focus:tracking-[0.25em] focus:text-brand-dark"
           >
             Skip to main content
           </a>

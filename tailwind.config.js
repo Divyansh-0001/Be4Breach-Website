@@ -6,28 +6,15 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          red: "#E11D2E",
-          black: "#0B0B0D",
+          red: "#FF2E2E",
+          cyan: "#00F0FF",
+          dark: "#0B0C10",
           white: "#FFFFFF",
         },
       },
       fontFamily: {
-        body: [
-          "ui-sans-serif",
-          "system-ui",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "\"Segoe UI\"",
-          "sans-serif",
-        ],
-        display: [
-          "ui-sans-serif",
-          "system-ui",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "\"Segoe UI\"",
-          "sans-serif",
-        ],
+        sans: ["Poppins", "sans-serif"],
+        display: ["Poppins", "sans-serif"],
         mono: [
           "ui-monospace",
           "SFMono-Regular",

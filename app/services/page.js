@@ -1,9 +1,12 @@
 import Link from "next/link";
+import AnimatedSection from "../components/AnimatedSection";
+import InfoCard from "../components/InfoCard";
+import SectionHeader from "../components/SectionHeader";
 
 export const metadata = {
   title: "Services",
   description:
-    "Explore Before Breach services across proactive, active, and reactive defense.",
+    "Explore Be4Breach services across proactive, active, and reactive defense.",
 };
 
 const serviceLinks = [
@@ -50,67 +53,50 @@ const aiHighlights = [
 export default function ServicesPage() {
   return (
     <main id="main-content" className="mx-auto w-full max-w-6xl px-6 py-12">
-      <section className="space-y-4">
-        <p className="text-xs uppercase tracking-[0.4em] text-brand-red">
-          Services
-        </p>
-        <h1 className="font-display text-3xl font-semibold text-brand-white">
-          Security coverage engineered for clarity and trust.
-        </h1>
-        <p className="max-w-2xl text-sm text-brand-white/70">
-          Before Breach delivers an end-to-end security program that maps to the
-          full breach lifecycle. Each service line is structured to reduce risk,
-          increase resilience, and provide transparent outcomes.
-        </p>
-      </section>
+      <AnimatedSection>
+        <SectionHeader
+          label="Services"
+          title="Security coverage engineered for clarity and trust."
+          description="Be4Breach delivers an end-to-end security program mapped to the full breach lifecycle. Each service line reduces risk and provides transparent outcomes."
+        />
+      </AnimatedSection>
 
-      <section className="mt-10 grid gap-4 md:grid-cols-2">
+      <AnimatedSection className="mt-10 grid gap-6 md:grid-cols-2">
         {serviceLinks.map((service) => (
           <Link
             key={service.href}
             href={service.href}
-            className="rounded-lg border border-brand-white/10 bg-brand-black/60 p-6 transition hover:border-brand-red/60"
+            className="group rounded-2xl border border-brand-white/10 bg-brand-dark/80 p-6 shadow-[0_18px_50px_rgba(0,0,0,0.25)] transition duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-brand-cyan/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan/70"
           >
-            <h2 className="font-display text-lg font-semibold text-brand-white">
+            <h2 className="text-lg font-semibold text-brand-white">
               {service.title}
             </h2>
-            <p className="mt-2 text-sm text-brand-white/60">
+            <p className="mt-2 text-sm text-brand-white/70">
               {service.description}
             </p>
+            <span className="mt-4 inline-flex text-xs uppercase tracking-[0.35em] text-brand-cyan/70 transition group-hover:text-brand-cyan">
+              View details
+            </span>
           </Link>
         ))}
-      </section>
+      </AnimatedSection>
 
-      <section className="mt-12">
-        <div className="space-y-3">
-          <p className="text-xs uppercase tracking-[0.4em] text-brand-red">
-            AI Enablement
-          </p>
-          <h2 className="font-display text-2xl font-semibold text-brand-white">
-            How AI elevates every service line.
-          </h2>
-          <p className="max-w-2xl text-sm text-brand-white/70">
-            We use AI to fuse signals, prioritize actions, and deliver guidance
-            that is explainable and accountable. The result is faster decision
-            making without sacrificing trust.
-          </p>
-        </div>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
+      <AnimatedSection className="mt-14">
+        <SectionHeader
+          label="AI Enablement"
+          title="How AI elevates every service line."
+          description="We fuse signals, prioritize actions, and deliver guidance that is explainable and accountable. The result is faster decisions without sacrificing trust."
+        />
+        <div className="mt-6 grid gap-6 md:grid-cols-3">
           {aiHighlights.map((item) => (
-            <div
+            <InfoCard
               key={item.title}
-              className="rounded-lg border border-brand-white/10 bg-brand-black/60 p-5"
-            >
-              <h3 className="font-display text-base font-semibold text-brand-white">
-                {item.title}
-              </h3>
-              <p className="mt-2 text-sm text-brand-white/60">
-                {item.description}
-              </p>
-            </div>
+              title={item.title}
+              description={item.description}
+            />
           ))}
         </div>
-      </section>
+      </AnimatedSection>
     </main>
   );
 }
