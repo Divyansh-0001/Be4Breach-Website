@@ -1,5 +1,11 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "Services",
+  description:
+    "Explore Before Breach services across proactive, active, and reactive defense.",
+};
+
 const serviceLinks = [
   {
     title: "Next-Gen Security",
@@ -43,7 +49,7 @@ const aiHighlights = [
 
 export default function ServicesPage() {
   return (
-    <main className="mx-auto w-full max-w-6xl px-6 py-12">
+    <main id="main-content" className="mx-auto w-full max-w-6xl px-6 py-12">
       <section className="space-y-4">
         <p className="text-xs uppercase tracking-[0.4em] text-brand-red">
           Services

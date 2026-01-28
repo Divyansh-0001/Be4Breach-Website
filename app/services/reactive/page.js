@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "Reactive Response",
+  description:
+    "Incident response and recovery with AI-accelerated investigation workflows.",
+};
+
 const coreCards = [
   {
     title: "Incident response",
@@ -36,7 +42,7 @@ const aiCards = [
 
 export default function ReactivePage() {
   return (
-    <main className="mx-auto w-full max-w-6xl px-6 py-12">
+    <main id="main-content" className="mx-auto w-full max-w-6xl px-6 py-12">
       <section className="space-y-4">
         <p className="text-xs uppercase tracking-[0.4em] text-brand-red">
           Services

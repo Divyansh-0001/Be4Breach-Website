@@ -29,7 +29,10 @@ export default function Header() {
             </p>
           </div>
         </div>
-        <nav className="flex flex-wrap gap-4 text-xs uppercase tracking-[0.25em] text-brand-white/60">
+        <nav
+          aria-label="Primary"
+          className="flex flex-wrap gap-4 text-xs uppercase tracking-[0.25em] text-brand-white/60"
+        >
           {navLinks.map((link) => (
             <Link
               key={link.href}

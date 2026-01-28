@@ -1,3 +1,4 @@
+import os
 from typing import List, Optional, Tuple
 
 from fastapi import FastAPI
@@ -6,10 +7,18 @@ from pydantic import BaseModel, Field
 
 app = FastAPI(title="Before Breach API")
 
-ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-]
+
+def get_allowed_origins() -> List[str]:
+    """Resolve CORS origins from env for frontend/backend decoupling."""
+    raw_origins = os.getenv("BACKEND_ALLOWED_ORIGINS", "")
+    if raw_origins:
+        return [origin.strip() for origin in raw_origins.split(",") if origin.strip()]
+    return [
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    ]
+
+ALLOWED_ORIGINS = get_allowed_origins()
 
 app.add_middleware(
     CORSMiddleware,

@@ -1,5 +1,11 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "Home",
+  description:
+    "Before Breach delivers AI-first cybersecurity services for enterprise teams.",
+};
+
 const serviceCards = [
   {
     title: "Next-Gen Security",
@@ -25,7 +31,7 @@ const serviceCards = [
 
 export default function Home() {
   return (
-    <main className="mx-auto w-full max-w-6xl px-6 py-12">
+    <main id="main-content" className="mx-auto w-full max-w-6xl px-6 py-12">
       <section className="space-y-6">
         <div className="inline-flex items-center gap-3 rounded-full border border-brand-red/40 bg-brand-black/70 px-4 py-2 text-[10px] uppercase tracking-[0.4em] text-brand-red">
           <span className="h-2 w-2 rounded-full bg-brand-red shadow-[0_0_12px_rgba(225,29,46,0.8)]" />

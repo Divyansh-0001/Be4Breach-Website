@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "About",
+  description:
+    "Learn about Before Breach: mission, vision, and AI-first cybersecurity philosophy.",
+};
+
 const highlights = [
   {
     title: "Mission",
@@ -36,7 +42,7 @@ const operatingModel = [
 
 export default function AboutPage() {
   return (
-    <main className="mx-auto w-full max-w-6xl px-6 py-12">
+    <main id="main-content" className="mx-auto w-full max-w-6xl px-6 py-12">
       <section className="space-y-4">
         <p className="text-xs uppercase tracking-[0.4em] text-brand-red">
           About

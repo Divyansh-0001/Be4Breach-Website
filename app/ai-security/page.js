@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 
-const API_URL = "http://localhost:8000/analyze-security";
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
+const API_URL = `${API_BASE_URL.replace(/\/$/, "")}/analyze-security`;
 
 const initialFormState = {
   text: "",
@@ -60,7 +62,7 @@ export default function AiSecurityPage() {
       const data = await response.json();
       setResult(data);
       setFormData(initialFormState);
-    } catch (submitError) {
+    } catch {
       setError(
         "Unable to reach the analysis service. Please verify the backend is running."
       );
@@ -70,7 +72,7 @@ export default function AiSecurityPage() {
   };
 
   return (
-    <main className="mx-auto w-full max-w-6xl px-6 py-12">
+    <main id="main-content" className="mx-auto w-full max-w-6xl px-6 py-12">
       <section className="space-y-4">
         <p className="text-xs uppercase tracking-[0.4em] text-brand-red">
           AI Security
@@ -86,9 +88,10 @@ export default function AiSecurityPage() {
       </section>
 
       <section className="mt-10 grid gap-8 md:grid-cols-[1.1fr_0.9fr]">
-        <form
+          <form
           onSubmit={handleSubmit}
           className="space-y-4 rounded-lg border border-brand-white/10 bg-brand-black/60 p-6"
+            aria-busy={isLoading}
         >
           <div>
             <label
@@ -103,6 +106,7 @@ export default function AiSecurityPage() {
               rows={6}
               value={formData.text}
               onChange={handleChange}
+              required
               className="mt-2 w-full rounded-md border border-brand-white/10 bg-brand-black/80 px-3 py-2 text-sm text-brand-white outline-none transition focus:border-brand-red/70 focus:ring-1 focus:ring-brand-red/70"
               placeholder="Example: We detected unusual authentication attempts and lateral movement across production servers."
             />
@@ -127,7 +131,9 @@ export default function AiSecurityPage() {
           </div>
 
           {error ? (
-            <p className="text-sm text-brand-red">{error}</p>
+            <p role="alert" className="text-sm text-brand-red">
+              {error}
+            </p>
           ) : null}
 
           <button
@@ -139,11 +145,16 @@ export default function AiSecurityPage() {
           </button>
         </form>
 
-        <div className="space-y-4 rounded-lg border border-brand-white/10 bg-brand-black/60 p-6">
+        <div
+          className="space-y-4 rounded-lg border border-brand-white/10 bg-brand-black/60 p-6"
+          aria-live="polite"
+        >
           <p className="text-xs uppercase tracking-[0.35em] text-brand-white/50">
             Analysis output
           </p>
-          {result ? (
+          {isLoading ? (
+            <p className="text-sm text-brand-white/60">Analyzing input...</p>
+          ) : result ? (
             <div className="space-y-4 text-sm text-brand-white/70">
               <div className="inline-flex items-center gap-3">
                 <span className="text-xs uppercase tracking-[0.35em] text-brand-white/50">

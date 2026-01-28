@@ -72,7 +72,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="mx-auto w-full max-w-6xl px-6 py-12">
+    <main id="main-content" className="mx-auto w-full max-w-6xl px-6 py-12">
       <section className="space-y-4">
         <p className="text-xs uppercase tracking-[0.4em] text-brand-red">
           Contact
@@ -89,7 +89,11 @@ export default function ContactPage() {
       <section className="mt-10 grid gap-8 md:grid-cols-[1.1fr_0.9fr]">
         <div>
           {isSubmitted ? (
-            <div className="mb-6 rounded-lg border border-brand-red/30 bg-brand-red/10 p-4 text-sm text-brand-white">
+            <div
+              role="status"
+              aria-live="polite"
+              className="mb-6 rounded-lg border border-brand-red/30 bg-brand-red/10 p-4 text-sm text-brand-white"
+            >
               Thank you for reaching out. Our team will respond within one
               business day.
             </div>
@@ -111,6 +115,8 @@ export default function ContactPage() {
                 type="text"
                 value={formData.name}
                 onChange={handleChange}
+                autoComplete="name"
+                required
                 aria-invalid={Boolean(errors.name)}
                 aria-describedby={errors.name ? "name-error" : undefined}
                 className={`mt-2 w-full rounded-md border bg-brand-black/80 px-3 py-2 text-sm text-brand-white outline-none transition focus:border-brand-red/70 focus:ring-1 focus:ring-brand-red/70 ${
@@ -138,6 +144,8 @@ export default function ContactPage() {
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
+                autoComplete="email"
+                required
                 aria-invalid={Boolean(errors.email)}
                 aria-describedby={errors.email ? "email-error" : undefined}
                 className={`mt-2 w-full rounded-md border bg-brand-black/80 px-3 py-2 text-sm text-brand-white outline-none transition focus:border-brand-red/70 focus:ring-1 focus:ring-brand-red/70 ${
@@ -165,6 +173,8 @@ export default function ContactPage() {
                 type="text"
                 value={formData.company}
                 onChange={handleChange}
+                autoComplete="organization"
+                required
                 aria-invalid={Boolean(errors.company)}
                 aria-describedby={errors.company ? "company-error" : undefined}
                 className={`mt-2 w-full rounded-md border bg-brand-black/80 px-3 py-2 text-sm text-brand-white outline-none transition focus:border-brand-red/70 focus:ring-1 focus:ring-brand-red/70 ${
@@ -194,6 +204,7 @@ export default function ContactPage() {
                 rows={4}
                 value={formData.message}
                 onChange={handleChange}
+                required
                 aria-invalid={Boolean(errors.message)}
                 aria-describedby={errors.message ? "message-error" : undefined}
                 className={`mt-2 w-full rounded-md border bg-brand-black/80 px-3 py-2 text-sm text-brand-white outline-none transition focus:border-brand-red/70 focus:ring-1 focus:ring-brand-red/70 ${

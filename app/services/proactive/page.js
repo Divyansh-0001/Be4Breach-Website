@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "Proactive Security",
+  description:
+    "Continuous risk reduction through attack surface management and AI guidance.",
+};
+
 const coreCards = [
   {
     title: "Attack surface management",
@@ -36,7 +42,7 @@ const aiCards = [
 
 export default function ProactivePage() {
   return (
-    <main className="mx-auto w-full max-w-6xl px-6 py-12">
+    <main id="main-content" className="mx-auto w-full max-w-6xl px-6 py-12">
       <section className="space-y-4">
         <p className="text-xs uppercase tracking-[0.4em] text-brand-red">
           Services
