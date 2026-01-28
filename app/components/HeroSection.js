@@ -1,43 +1,47 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { slideUp, staggerContainer } from "../lib/animations";
 import CTAButton from "./CTAButton";
-
-const containerVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
-};
 
 export default function HeroSection() {
   return (
-    <section className="flex min-h-[calc(100vh-120px)] flex-col justify-center gap-8 py-10">
+    <section className="flex min-h-[calc(100vh-120px)] flex-col justify-center py-12 text-center md:text-left">
       <motion.div
         initial="hidden"
         animate="visible"
+        variants={staggerContainer}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        variants={containerVariants}
         className="space-y-6"
       >
-        <p className="text-xs uppercase tracking-[0.4em] text-brand-cyan">
+        <motion.p
+          variants={slideUp}
+          className="text-xs uppercase tracking-[0.4em] text-brand-cyan"
+        >
           Be4Breach
-        </p>
-        <h1 className="text-4xl font-semibold text-brand-white md:text-6xl">
+        </motion.p>
+        <motion.h1
+          variants={slideUp}
+          className="text-4xl font-semibold text-brand-white md:text-6xl"
+        >
           AI-powered cybersecurity solutions
-        </h1>
-        <p className="max-w-2xl text-base text-brand-white/70 md:text-lg">
+        </motion.h1>
+        <motion.p
+          variants={slideUp}
+          className="mx-auto max-w-2xl text-base text-brand-white/70 md:mx-0 md:text-lg"
+        >
           Be4Breach fuses predictive intelligence, continuous validation, and
           guided response into a single enterprise-ready defense platform.
-        </p>
-        <div className="flex flex-wrap gap-4">
-          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-            <CTAButton href="/services">Explore Services</CTAButton>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-            <CTAButton href="/contact" variant="secondary">
-              Contact Us
-            </CTAButton>
-          </motion.div>
-        </div>
+        </motion.p>
+        <motion.div
+          variants={slideUp}
+          className="flex flex-wrap justify-center gap-4 md:justify-start"
+        >
+          <CTAButton href="/services">Explore Services</CTAButton>
+          <CTAButton href="/contact" variant="secondary">
+            Contact Us
+          </CTAButton>
+        </motion.div>
       </motion.div>
     </section>
   );

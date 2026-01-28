@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { buttonVariants } from "../lib/animations";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -35,7 +39,14 @@ export default function Header() {
               href={link.href}
               className="transition hover:text-brand-cyan focus-visible:text-brand-cyan focus-visible:outline-none"
             >
-              {link.label}
+              <motion.span
+                variants={buttonVariants}
+                whileHover="hover"
+                whileTap="tap"
+                className="inline-flex"
+              >
+                {link.label}
+              </motion.span>
             </Link>
           ))}
         </nav>

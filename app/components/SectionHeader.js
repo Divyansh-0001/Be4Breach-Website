@@ -6,7 +6,7 @@ export default function SectionHeader({ label, title, description }) {
           {label}
         </p>
       ) : null}
-      <h2 className="text-2xl font-semibold text-brand-white md:text-3xl">
+      <h2 className="text-2xl font-semibold text-brand-white sm:text-3xl md:text-4xl">
         {title}
       </h2>
       {description ? (

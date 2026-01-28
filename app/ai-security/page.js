@@ -1,7 +1,12 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useState } from "react";
-import AnimatedSection from "../components/AnimatedSection";
+import {
+  buttonVariants,
+  slideUp,
+  staggerContainer,
+} from "../lib/animations";
 
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
@@ -74,11 +79,17 @@ export default function AiSecurityPage() {
 
   return (
     <main id="main-content" className="mx-auto w-full max-w-6xl px-6 py-12">
-      <AnimatedSection className="space-y-4">
+      <motion.section
+        className="space-y-4"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-120px" }}
+        variants={slideUp}
+      >
         <p className="text-xs uppercase tracking-[0.4em] text-brand-cyan">
           AI Security
         </p>
-        <h1 className="text-3xl font-semibold text-brand-white md:text-4xl">
+        <h1 className="text-3xl font-semibold text-brand-white md:text-5xl">
           AI-assisted security analysis for enterprise teams.
         </h1>
         <p className="max-w-2xl text-sm text-brand-white/70 md:text-base">
@@ -86,11 +97,18 @@ export default function AiSecurityPage() {
           rule-based risk assessment. This is a placeholder for the upcoming
           Be4Breach AI analysis engine.
         </p>
-      </AnimatedSection>
+      </motion.section>
 
-      <section className="mt-10 grid gap-8 md:grid-cols-[1.1fr_0.9fr]">
-        <form
+      <motion.section
+        className="mt-10 grid gap-8 md:grid-cols-[1.1fr_0.9fr]"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-120px" }}
+        variants={staggerContainer}
+      >
+        <motion.form
           onSubmit={handleSubmit}
+          variants={slideUp}
           className="space-y-4 rounded-2xl border border-brand-white/10 bg-brand-dark/80 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
           aria-busy={isLoading}
         >
@@ -137,16 +155,20 @@ export default function AiSecurityPage() {
             </p>
           ) : null}
 
-          <button
+          <motion.button
             type="submit"
             disabled={isLoading}
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
             className="w-full rounded-full border border-brand-red bg-brand-red px-5 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-brand-dark transition hover:shadow-[0_0_24px_rgba(255,46,46,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan/70 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {isLoading ? "Analyzing..." : "Run analysis"}
-          </button>
-        </form>
+          </motion.button>
+        </motion.form>
 
-        <div
+        <motion.div
+          variants={slideUp}
           className="space-y-4 rounded-2xl border border-brand-white/10 bg-brand-dark/80 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
           aria-live="polite"
         >
@@ -195,8 +217,8 @@ export default function AiSecurityPage() {
               recommended actions.
             </p>
           )}
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
     </main>
   );
 }

@@ -1,6 +1,7 @@
 import AnimatedSection from "../components/AnimatedSection";
 import InfoCard from "../components/InfoCard";
 import SectionHeader from "../components/SectionHeader";
+import { staggerContainer } from "../lib/animations";
 
 export const metadata = {
   title: "About",
@@ -55,7 +56,7 @@ export default function AboutPage() {
         />
       </AnimatedSection>
 
-      <AnimatedSection className="mt-10 grid gap-6 md:grid-cols-3">
+      <AnimatedSection className="mt-10 grid gap-6 md:grid-cols-3" variants={staggerContainer}>
         {highlights.map((item) => (
           <InfoCard
             key={item.title}
@@ -92,7 +93,7 @@ export default function AboutPage() {
         </div>
       </AnimatedSection>
 
-      <AnimatedSection className="mt-14">
+      <AnimatedSection className="mt-14" variants={staggerContainer}>
         <SectionHeader
           label="Operating model"
           title="How we operate"

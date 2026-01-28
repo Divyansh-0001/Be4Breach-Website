@@ -1,6 +1,8 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useState } from "react";
+import { buttonVariants, slideUp, staggerContainer } from "../lib/animations";
 
 const initialFormState = {
   name: "",
@@ -73,21 +75,33 @@ export default function ContactPage() {
 
   return (
     <main id="main-content" className="mx-auto w-full max-w-6xl px-6 py-12">
-      <section className="space-y-4">
+      <motion.section
+        className="space-y-4"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-120px" }}
+        variants={slideUp}
+      >
         <p className="text-xs uppercase tracking-[0.4em] text-brand-cyan">
           Contact
         </p>
-        <h1 className="text-3xl font-semibold text-brand-white md:text-4xl">
+        <h1 className="text-3xl font-semibold text-brand-white md:text-5xl">
           Start a secure conversation with Be4Breach.
         </h1>
         <p className="max-w-2xl text-sm text-brand-white/70 md:text-base">
           Connect with our security team for enterprise readiness assessments,
           AI-driven defense planning, and rapid response support.
         </p>
-      </section>
+      </motion.section>
 
-      <section className="mt-10 grid gap-8 md:grid-cols-[1.1fr_0.9fr]">
-        <div>
+      <motion.section
+        className="mt-10 grid gap-8 md:grid-cols-[1.1fr_0.9fr]"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-120px" }}
+        variants={staggerContainer}
+      >
+        <motion.div variants={slideUp}>
           {isSubmitted ? (
             <div
               role="status"
@@ -225,16 +239,22 @@ export default function ContactPage() {
               ) : null}
             </div>
 
-            <button
+            <motion.button
               type="submit"
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
               className="w-full rounded-full border border-brand-red bg-brand-red px-5 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-brand-dark transition hover:shadow-[0_0_24px_rgba(255,46,46,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan/70"
             >
               Send message
-            </button>
+            </motion.button>
           </form>
-        </div>
+        </motion.div>
 
-        <div className="space-y-4 rounded-2xl border border-brand-white/10 bg-brand-dark/80 p-6 text-sm text-brand-white/70 shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
+        <motion.div
+          variants={slideUp}
+          className="space-y-4 rounded-2xl border border-brand-white/10 bg-brand-dark/80 p-6 text-sm text-brand-white/70 shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
+        >
           <div>
             <p className="text-xs uppercase tracking-[0.35em] text-brand-white/50">
               Contact details
@@ -259,8 +279,8 @@ export default function ContactPage() {
               clients.
             </p>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
     </main>
   );
 }

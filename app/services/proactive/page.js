@@ -1,6 +1,7 @@
 import AnimatedSection from "../../components/AnimatedSection";
 import InfoCard from "../../components/InfoCard";
 import SectionHeader from "../../components/SectionHeader";
+import { staggerContainer } from "../../lib/animations";
 
 export const metadata = {
   title: "Proactive Security",
@@ -55,7 +56,7 @@ export default function ProactivePage() {
         />
       </AnimatedSection>
 
-      <AnimatedSection className="mt-12">
+      <AnimatedSection className="mt-12" variants={staggerContainer}>
         <SectionHeader label="Delivery" title="What this service delivers" />
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {coreCards.map((card) => (
@@ -68,7 +69,7 @@ export default function ProactivePage() {
         </div>
       </AnimatedSection>
 
-      <AnimatedSection className="mt-12">
+      <AnimatedSection className="mt-12" variants={staggerContainer}>
         <SectionHeader
           label="AI Advantage"
           title="How AI improves proactive security."

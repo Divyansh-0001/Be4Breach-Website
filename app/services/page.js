@@ -1,7 +1,8 @@
-import Link from "next/link";
 import AnimatedSection from "../components/AnimatedSection";
 import InfoCard from "../components/InfoCard";
 import SectionHeader from "../components/SectionHeader";
+import ServiceCardGrid from "../components/ServiceCardGrid";
+import { staggerContainer } from "../lib/animations";
 
 export const metadata = {
   title: "Services",
@@ -61,27 +62,17 @@ export default function ServicesPage() {
         />
       </AnimatedSection>
 
-      <AnimatedSection className="mt-10 grid gap-6 md:grid-cols-2">
-        {serviceLinks.map((service) => (
-          <Link
-            key={service.href}
-            href={service.href}
-            className="group rounded-2xl border border-brand-white/10 bg-brand-dark/80 p-6 shadow-[0_18px_50px_rgba(0,0,0,0.25)] transition duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-brand-cyan/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan/70"
-          >
-            <h2 className="text-lg font-semibold text-brand-white">
-              {service.title}
-            </h2>
-            <p className="mt-2 text-sm text-brand-white/70">
-              {service.description}
-            </p>
-            <span className="mt-4 inline-flex text-xs uppercase tracking-[0.35em] text-brand-cyan/70 transition group-hover:text-brand-cyan">
-              View details
-            </span>
-          </Link>
-        ))}
+      <AnimatedSection className="mt-10">
+        <ServiceCardGrid
+          columns="sm:grid-cols-2 lg:grid-cols-4"
+          cards={serviceLinks.map((service) => ({
+            ...service,
+            cta: "View details",
+          }))}
+        />
       </AnimatedSection>
 
-      <AnimatedSection className="mt-14">
+      <AnimatedSection className="mt-14" variants={staggerContainer}>
         <SectionHeader
           label="AI Enablement"
           title="How AI elevates every service line."
