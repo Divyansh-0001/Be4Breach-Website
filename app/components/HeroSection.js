@@ -22,7 +22,7 @@ export default function HeroSection() {
         </motion.p>
         <motion.h1
           variants={slideUp}
-          className="text-4xl font-semibold text-brand-white md:text-6xl"
+          className="text-4xl font-semibold leading-tight text-brand-white md:text-6xl"
         >
           AI-powered cybersecurity solutions
         </motion.h1>

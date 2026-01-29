@@ -94,8 +94,8 @@ export default function AiSecurityPage() {
         </h1>
         <p className="max-w-2xl text-sm text-brand-white/70 md:text-base">
           Submit a short description of a security concern to receive a
-          rule-based risk assessment. This is a placeholder for the upcoming
-          Be4Breach AI analysis engine.
+          rule-based risk assessment. This experience showcases the foundation
+          of the Be4Breach AI analysis engine.
         </p>
       </motion.section>
 

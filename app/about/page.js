@@ -73,7 +73,7 @@ export default function AboutPage() {
             title="Intelligence that earns trust."
             description="Our AI models prioritize transparency, explainability, and human oversight. We fuse telemetry across cloud, identity, and endpoint layers to build a risk graph that surfaces the actions most likely to prevent breaches."
           />
-          <p className="text-sm text-brand-white/70">
+          <p className="text-sm text-brand-white/70 md:text-base">
             Security leaders receive clear recommendations backed by evidence,
             ensuring every decision is auditable and aligned with policy.
           </p>
