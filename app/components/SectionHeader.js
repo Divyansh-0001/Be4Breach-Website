@@ -10,7 +10,7 @@ export default function SectionHeader({ label, title, description }) {
         {title}
       </h2>
       {description ? (
-        <p className="max-w-2xl text-sm text-brand-white/70 md:text-base">
+        <p className="max-w-2xl text-sm text-brand-white/70 md:text-base leading-relaxed">
           {description}
         </p>
       ) : null}

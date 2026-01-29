@@ -22,16 +22,19 @@ export default function HeroSection() {
         </motion.p>
         <motion.h1
           variants={slideUp}
-          className="text-4xl font-semibold leading-tight text-brand-white md:text-6xl"
+          className="mx-auto max-w-3xl text-4xl font-semibold leading-tight text-brand-white md:mx-0 md:text-6xl"
         >
-          AI-powered cybersecurity solutions
+          <span className="bg-gradient-to-r from-brand-white via-brand-cyan to-brand-red bg-clip-text text-transparent">
+            AI-powered
+          </span>{" "}
+          cybersecurity solutions
         </motion.h1>
         <motion.p
           variants={slideUp}
           className="mx-auto max-w-2xl text-base text-brand-white/70 md:mx-0 md:text-lg"
         >
           Be4Breach fuses predictive intelligence, continuous validation, and
-          guided response into a single enterprise-ready defense platform.
+          guided response into a premium enterprise-ready defense platform.
         </motion.p>
         <motion.div
           variants={slideUp}
