@@ -1,9 +1,11 @@
 import AnimatedSection from "./components/AnimatedSection";
+import FeatureCard from "./components/FeatureCard";
 import CTAButton from "./components/CTAButton";
 import AlternatingSection from "./components/AlternatingSection";
 import HeroSection from "./components/HeroSection";
 import ServiceCardGrid from "./components/ServiceCardGrid";
 import SectionHeader from "./components/SectionHeader";
+import { staggerContainer } from "./lib/animations";
 
 export const metadata = {
   title: "Home",
@@ -34,6 +36,27 @@ const serviceCards = [
   },
 ];
 
+const features = [
+  {
+    icon: "AI",
+    title: "Predictive intelligence",
+    description:
+      "Anticipate adversary behavior with AI models trained on real-world threat patterns.",
+  },
+  {
+    icon: "XR",
+    title: "Explainable response",
+    description:
+      "Every recommendation is transparent, auditable, and aligned to policy.",
+  },
+  {
+    icon: "24",
+    title: "Continuous validation",
+    description:
+      "Monitor critical controls around the clock to eliminate blind spots.",
+  },
+];
+
 const alternatingSections = [
   {
     label: "Predictive intelligence",
@@ -49,10 +72,46 @@ const alternatingSections = [
   },
 ];
 
+const testimonials = [
+  {
+    title: "Global Fintech CISO",
+    description:
+      "Be4Breach delivered immediate visibility into our critical control gaps and a roadmap we could execute quickly.",
+  },
+  {
+    title: "Healthcare Security Director",
+    description:
+      "The AI-driven prioritization helped us focus on what mattered most without losing trust in the data.",
+  },
+  {
+    title: "Cloud Infrastructure Lead",
+    description:
+      "We reduced response times and gained confidence in our incident readiness within weeks.",
+  },
+];
+
 export default function Home() {
   return (
     <main id="main-content" className="mx-auto w-full max-w-6xl px-6">
       <HeroSection />
+
+      <AnimatedSection className="py-16" variants={staggerContainer}>
+        <SectionHeader
+          label="Feature Highlights"
+          title="Premium AI capabilities built for security leaders."
+          description="Modernize your defenses with intelligent automation, continuous validation, and trusted guidance."
+        />
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {features.map((feature) => (
+            <FeatureCard
+              key={feature.title}
+              icon={feature.icon}
+              title={feature.title}
+              description={feature.description}
+            />
+          ))}
+        </div>
+      </AnimatedSection>
 
       <AnimatedSection className="border-t border-brand-white/10 py-16">
         <SectionHeader
@@ -80,6 +139,24 @@ export default function Home() {
           />
         ))}
       </div>
+
+      <AnimatedSection className="py-16" variants={staggerContainer}>
+        <SectionHeader
+          label="Trusted by teams"
+          title="Confidence from enterprise security leaders."
+          description="Be4Breach is trusted to deliver measurable risk reduction with transparency at every step."
+        />
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          {testimonials.map((item) => (
+            <FeatureCard
+              key={item.title}
+              icon="QB"
+              title={item.title}
+              description={item.description}
+            />
+          ))}
+        </div>
+      </AnimatedSection>
 
       <AnimatedSection className="pb-20">
         <div className="rounded-3xl border border-brand-white/10 bg-brand-dark/80 px-8 py-10 shadow-[0_25px_80px_rgba(0,0,0,0.35)] md:flex md:items-center md:justify-between">
